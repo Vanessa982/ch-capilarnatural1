@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise Capilar Masculina</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#000,#001a33);
+color:white;
+}
+
+h1{
+text-align:center;
+margin:30px;
+color:#4da6ff;
+}
+
+/* PROGRESSO QUIZ */
+
+.progresso-box{
+width:80%;
+max-width:600px;
+height:10px;
+background:#222;
+margin:20px auto;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progresso{
+height:100%;
+width:0%;
+background:#4da6ff;
+transition:0.3s;
+}
+
+/* QUIZ */
+
+.quiz{
+max-width:800px;
+margin:auto;
+background:#0a0a0a;
+padding:40px;
+border-radius:15px;
+box-shadow:0 0 25px rgba(77,166,255,0.4);
+
+/* CORREÇÃO IMPORTANTE */
+max-height:80vh;
+overflow-y:auto;
+}
+
+.pergunta{
+margin-bottom:35px;
+}
+
+.pergunta p{
+margin-bottom:10px;
+color:#7fbfff;
+font-size:18px;
+}
+
+.opcao{
+display:block;
+margin-bottom:8px;
+cursor:pointer;
+}
+
+/* BOTAO */
+
+.botao{
+display:block;
+margin:30px auto;
+padding:14px 40px;
+border:none;
+border-radius:30px;
+background:#4da6ff;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+
+.botao:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #4da6ff;
+}
+
+/* ANALISE */
+
+.analise{
+display:none;
+text-align:center;
+padding:60px;
+}
+
+.carregando{
+width:300px;
+height:12px;
+background:#222;
+margin:30px auto;
+border-radius:20px;
+overflow:hidden;
+}
+
+.carregando-barra{
+height:100%;
+width:0%;
+background:#4da6ff;
+animation:carregar 3s linear forwards;
+}
+
+@keyframes carregar{
+0%{width:0%;}
+100%{width:100%;}
+}
+
+/* RESULTADO */
+
+.resultado{
+display:none;
+text-align:center;
+padding:40px;
+}
+
+.diagnostico{
+font-size:26px;
+margin-top:20px;
+}
+
+/* RECEITAS */
+
+.receitas{
+display:none;
+}
+
+.container{
+padding:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
+max-width:1200px;
+margin:auto;
+}
+
+.card{
+background:#0a0a0a;
+padding:20px;
+border-radius:12px;
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 0 25px rgba(77,166,255,0.6);
+}
+
+.card img{
+width:100%;
+height:240px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.card h3{
+color:#4da6ff;
+}
+
+.card a{
+color:#7fbfff;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#777;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>👨 Teste Capilar Masculino</h1>
+
+<div class="progresso-box">
+<div class="progresso" id="progresso"></div>
+</div>
+
+<div class="quiz" id="quiz">
+
+<form>
+
+<div class="pergunta">
+<p>1️⃣ Você percebe entradas?</p>
+<label class="opcao"><input type="radio" name="q1" value="20" onclick="progresso()"> Sim</label>
+<label class="opcao"><input type="radio" name="q1" value="5" onclick="progresso()"> Não</label>
+</div>
+
+<div class="pergunta">
+<p>2️⃣ Cabelo cai no banho?</p>
+<label class="opcao"><input type="radio" name="q2" value="20" onclick="progresso()"> Muito</label>
+<label class="opcao"><input type="radio" name="q2" value="10" onclick="progresso()"> Pouco</label>
+<label class="opcao"><input type="radio" name="q2" value="5" onclick="progresso()"> Quase nada</label>
+</div>
+
+<div class="pergunta">
+<p>3️⃣ Couro cabeludo oleoso?</p>
+<label class="opcao"><input type="radio" name="q3" value="15" onclick="progresso()"> Sim</label>
+<label class="opcao"><input type="radio" name="q3" value="5" onclick="progresso()"> Não</label>
+</div>
+
+<div class="pergunta">
+<p>4️⃣ Cabelo mais fino que antes?</p>
+<label class="opcao"><input type="radio" name="q4" value="20" onclick="progresso()"> Sim</label>
+<label class="opcao"><input type="radio" name="q4" value="5" onclick="progresso()"> Não</label>
+</div>
+
+<div class="pergunta">
+<p>5️⃣ Existe calvície na família?</p>
+<label class="opcao"><input type="radio" name="q5" value="20" onclick="progresso()"> Sim</label>
+<label class="opcao"><input type="radio" name="q5" value="5" onclick="progresso()"> Não</label>
+</div>
+
+<div class="pergunta">
+<p>6️⃣ Coceira no couro cabeludo?</p>
+<label class="opcao"><input type="radio" name="q6" value="15" onclick="progresso()"> Sim</label>
+<label class="opcao"><input type="radio" name="q6" value="5" onclick="progresso()"> Não</label>
+</div>
+
+<div class="pergunta">
+<p>7️⃣ Cabelo demora crescer?</p>
+<label class="opcao"><input type="radio" name="q7" value="15" onclick="progresso()"> Sim</label>
+<label class="opcao"><input type="radio" name="q7" value="5" onclick="progresso()"> Não</label>
+</div>
+
+<div class="pergunta">
+<p>8️⃣ Usa boné com frequência?</p>
+<label class="opcao"><input type="radio" name="q8" value="10" onclick="progresso()"> Sim</label>
+<label class="opcao"><input type="radio" name="q8" value="5" onclick="progresso()"> Não</label>
+</div>
+
+<button type="button" class="botao" onclick="verificar()">Finalizar Análise</button>
+
+</form>
+
+</div>
+
+<div class="analise" id="analise">
+
+<h2>🔎 Analisando seu couro cabeludo...</h2>
+
+<div class="carregando">
+<div class="carregando-barra"></div>
+</div>
+
+<p>Avaliando queda capilar...</p>
+
+</div>
+
+<div class="resultado" id="resultado">
+
+<h2>Diagnóstico Capilar</h2>
+
+<p class="diagnostico" id="textoResultado"></p>
+
+<p id="pontuacao"></p>
+
+<button class="botao" onclick="liberar()">Ver Receitas Naturais</button>
+
+</div>
+
+<div class="receitas" id="receitas">
+
+<h1>🌿 Receitas Naturais para Homens</h1>
+
+<section class="container">
+
+<div class="card">
+<img src="https://i.postimg.cc/Lsrn47qr/Healthy-Hair-Routine-7-Steps-to-Transform-Dry-Hair-Fast.jpg">
+<h3>Chá de Babosa</h3>
+<a href="receita6.html">Ver Receita</a>
+</div>
+
+<div class="card">
+<img src="https://i.postimg.cc/vBNxnBNd/Cha-de-Gengibre-com-Limao.jpg">
+<h3>Chá de Gengibre</h3>
+<a href="receita7.html">Ver Receita</a>
+</div>
+
+<div class="card">
+<img src="https://i.postimg.cc/ZR8KbqzD/download-(19).jpg">
+<h3>Chá de Cavalinha</h3>
+<a href="receita8.html">Ver Receita</a>
+</div>
+
+<div class="card">
+<img src="https://i.postimg.cc/KzRrwdXv/download-(18).jpg">
+<h3>Chá de Folha de Goiaba</h3>
+<a href="receita9.html">Ver Receita</a>
+</div>
+
+<div class="card">
+<img src="https://i.postimg.cc/L6ML3qsX/Beba-cha-de-louro-todos-os-dias-dicas-receitas-shorts.jpg">
+<h3>Chá de Louro</h3>
+<a href="receita10.html">Ver Receita</a>
+</div>
+
+</section>
+
+<footer>
+© 2026 Chás Capilares Naturais
+</footer>
+
+</div>
+
+<script>
+
+function progresso(){
+let total=document.querySelectorAll("input[type=radio]:checked").length;
+let porcentagem=(total/8)*100;
+document.getElementById("progresso").style.width=porcentagem+"%";
+}
+
+function verificar(){
+
+let respostas=document.querySelectorAll("input[type=radio]:checked");
+
+if(respostas.length<8){
+alert("Responda todas as perguntas");
+return;
+}
+
+let pontuacao=0;
+
+respostas.forEach(resposta=>{
+pontuacao+=parseInt(resposta.value);
+});
+
+document.getElementById("quiz").style.display="none";
+document.getElementById("analise").style.display="block";
+
+setTimeout(function(){
+
+document.getElementById("analise").style.display="none";
+document.getElementById("resultado").style.display="block";
+
+let texto="Seu cabelo precisa de cuidados.";
+
+if(pontuacao<=50){
+texto="✔ Seu cabelo está saudável.";
+}
+else if(pontuacao<=90){
+texto="⚠ Seu cabelo precisa de fortalecimento.";
+}
+else{
+texto="🚨 Risco de queda capilar.";
+}
+
+document.getElementById("textoResultado").innerText=texto;
+document.getElementById("pontuacao").innerText="Nível de risco capilar: "+pontuacao+"%";
+
+},3000)
+
+}
+
+function liberar(){
+localStorage.setItem("quizHomemRespondido","sim");
+document.getElementById("resultado").style.display="none";
+document.getElementById("receitas").style.display="block";
+}
+
+window.onload=function(){
+
+if(localStorage.getItem("quizHomemRespondido")==="sim"){
+document.getElementById("quiz").style.display="none";
+document.getElementById("receitas").style.display="block";
+}
+
+}
+
+</script>
+
+</body>
+</html>

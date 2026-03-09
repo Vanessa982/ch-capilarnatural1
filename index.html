@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chás Capilares</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins', sans-serif;
+}
+
+body{
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+height:100vh;
+
+background: linear-gradient(
+90deg,
+#1a0010 0%,
+#2a0018 40%,
+#14001f 50%,
+#001a2a 60%,
+#001a2a 100%
+);
+
+transition:0.4s;
+}
+
+/* EFEITO LUZ ROSA */
+
+body:has(.mulher:hover){
+background: radial-gradient(circle at 25% center,#ff4fa3 0%,#1a0010 40%,#000 70%);
+}
+
+/* EFEITO LUZ AZUL */
+
+body:has(.homem:hover){
+background: radial-gradient(circle at 75% center,#3ea6ff 0%,#001a2a 40%,#000 70%);
+}
+
+/* CONTAINER */
+
+.container{
+display:flex;
+gap:80px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+/* BLOCO */
+
+.bloco{
+width:420px;
+height:470px;
+border-radius:18px;
+overflow:hidden;
+text-align:center;
+box-shadow:0 0 35px rgba(0,0,0,0.9);
+transition:0.4s;
+cursor:pointer;
+position:relative;
+}
+
+/* FUNDO BLOCO MULHER */
+
+.mulher{
+background: linear-gradient(to bottom,#000 70%,#3a001f 100%);
+}
+
+/* FUNDO BLOCO HOMEM */
+
+.homem{
+background: linear-gradient(to bottom,#000 70%,#001f3a 100%);
+}
+
+/* HOVER */
+
+.bloco:hover{
+transform:scale(1.08);
+}
+
+/* IMAGEM */
+
+.bloco img{
+width:100%;
+height:330px;
+object-fit:cover;
+}
+
+/* TEXTO */
+
+.bloco h2{
+margin-top:25px;
+letter-spacing:2px;
+font-size:34px;
+text-transform:uppercase;
+}
+
+/* COR MULHER */
+
+.mulher h2{
+color:#ff79b0;
+}
+
+/* COR HOMEM */
+
+.homem h2{
+color:#5bbcff;
+}
+
+/* LINK */
+
+a{
+text-decoration:none;
+color:white;
+}
+
+/* FOOTER */
+
+footer{
+position:absolute;
+bottom:20px;
+color:#777;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="quizfeminino.html">
+<div class="bloco mulher">
+
+<img src="https://i.postimg.cc/s22gVmHY/tratamento-capilar-cabelos-seco-mal-cuidado-nunca-mais.jpg">
+
+<h2>♀️ MULHERES</h2>
+
+</div>
+</a>
+
+<a href="quizmasculino.html">
+<div class="bloco homem">
+
+<img src="https://i.postimg.cc/LXc93p9C/Escolha-o-corte-de-cabelo-para-seu-formato-de-rosto.jpg">
+
+<h2>♂️ HOMENS</h2>
+
+</div>
+</a>
+
+</div>
+
+<footer>
+© 2026 Chás Capilares Naturais
+</footer>
+
+</body>
+</html>

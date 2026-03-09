@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Capilar Masculino</title>
+
+<style>
+
+body{
+background:#001a2a;
+color:white;
+font-family:Arial;
+text-align:center;
+padding:40px;
+}
+
+.quiz{
+max-width:700px;
+margin:auto;
+background:#000;
+padding:40px;
+border-radius:10px;
+}
+
+.pergunta{
+margin-bottom:35px;
+font-size:18px;
+}
+
+.pergunta label{
+display:block;
+margin-top:10px;
+background:#111;
+padding:12px;
+border-radius:8px;
+cursor:pointer;
+font-size:17px;
+}
+
+.pergunta input{
+margin-right:10px;
+transform:scale(1.3);
+}
+
+button{
+margin-top:30px;
+padding:15px 35px;
+border:none;
+background:#3ea6ff;
+color:white;
+font-size:18px;
+border-radius:30px;
+cursor:pointer;
+}
+
+.resultado{
+display:none;
+font-size:24px;
+margin-top:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>👨 Teste Capilar Masculino</h1>
+
+<div class="quiz" id="quiz">
+
+<div class="pergunta">
+<p>1️⃣ Você percebe entradas?</p>
+<label><input type="radio" name="q1" value="20"> Sim</label>
+<label><input type="radio" name="q1" value="5"> Não</label>
+</div>
+
+<div class="pergunta">
+<p>2️⃣ Cabelo cai no banho?</p>
+<label><input type="radio" name="q2" value="20"> Muito</label>
+<label><input type="radio" name="q2" value="10"> Pouco</label>
+<label><input type="radio" name="q2" value="5"> Quase nada</label>
+</div>
+
+<div class="pergunta">
+<p>3️⃣ Couro cabeludo oleoso?</p>
+<label><input type="radio" name="q3" value="15"> Sim</label>
+<label><input type="radio" name="q3" value="5"> Não</label>
+</div>
+
+<div class="pergunta">
+<p>4️⃣ Existe calvície na família?</p>
+<label><input type="radio" name="q4" value="20"> Sim</label>
+<label><input type="radio" name="q4" value="5"> Não</label>
+</div>
+
+<div class="pergunta">
+<p>5️⃣ Você percebe falhas no cabelo?</p>
+<label><input type="radio" name="q5" value="20"> Sim</label>
+<label><input type="radio" name="q5" value="5"> Não</label>
+</div>
+
+<div class="pergunta">
+<p>6️⃣ Seu cabelo está afinando?</p>
+<label><input type="radio" name="q6" value="20"> Sim</label>
+<label><input type="radio" name="q6" value="10"> Um pouco</label>
+<label><input type="radio" name="q6" value="5"> Não</label>
+</div>
+
+<div class="pergunta">
+<p>7️⃣ Você sente coceira no couro cabeludo?</p>
+<label><input type="radio" name="q7" value="15"> Sim</label>
+<label><input type="radio" name="q7" value="5"> Não</label>
+</div>
+
+<div class="pergunta">
+<p>8️⃣ Você percebe diminuição de volume no cabelo?</p>
+<label><input type="radio" name="q8" value="20"> Sim</label>
+<label><input type="radio" name="q8" value="5"> Não</label>
+</div>
+
+<button onclick="verificar()">Finalizar</button>
+
+</div>
+
+<div class="resultado" id="resultado"></div>
+
+<script>
+
+function verificar(){
+
+let respostas=document.querySelectorAll("input[type=radio]:checked");
+
+if(respostas.length<8){
+alert("Responda todas as perguntas");
+return;
+}
+
+let pontos=0;
+
+respostas.forEach(r=>{
+pontos+=parseInt(r.value);
+});
+
+let texto="";
+
+if(pontos<=40){
+texto="✔ Seu cabelo está saudável.";
+}
+
+else if(pontos<=80){
+texto="⚠ Seu cabelo precisa de fortalecimento.";
+}
+
+else{
+texto="🚨 Risco de queda capilar.";
+}
+
+document.getElementById("quiz").style.display="none";
+
+let res=document.getElementById("resultado");
+
+res.style.display="block";
+res.innerHTML=texto + "<br><br><a href='homem.html'><button>Ver Receitas Naturais</button></a>";
+
+}
+
+</script>
+
+</body>
+</html>
